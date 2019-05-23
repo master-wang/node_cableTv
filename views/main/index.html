@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../public/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <script src="/public/js/jquery.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+    <script src="/public/js/vue.js"></script>
+    <script src="/public/js/axios.js"></script>
+    <script src="/public/js/index.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>有线电视故障管理系统</title>
+    <style>
+        body{
+            background-image: url("/public/imgs/indexb.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .main{
+            width: 400px;
+            height: 500px;
+            margin-left: 40%;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1 style="margin-left: 40%;color: white">有线电视故障管理系统</h1>
+    <div class="main">
+        <div class="login">
+            <h2>登录</h2>
+                <div class="form-group">
+                    <label for="lusername">用户名</label>
+                    <input v-model="login_userInfo.username" type="text" class="form-control" id="lusername" placeholder="用户名">
+                </div>
+                <div class="form-group">
+                    <label for="lpassword">密码</label>
+                    <input v-model="login_userInfo.password" type="password" class="form-control" id="lpassword" placeholder="密码">
+                </div>
+                <div>
+                    <label>权限选择</label>
+                    <select v-model="login_userInfo.is_ad" name="lis_admin" >
+                        <option value="false">普通用户</option>
+                        <option value="true">管理员</option>
+                    </select>
+                </div>
+                <button  class="btn btn-default" @click="User_login()">登录</button>
+                <br>
+                <div style="margin-top:20px;font-size:30px;color:white">
+                    <span id="gore" onclick="showre()">去注册</span>
+                </div>
+                <div style="color:red" id="lotip"></div>
+            
+        </div>
+        <div class="regist"　style="display:none" >
+            <h2>注册</h2>
+                <div class="form-group">
+                    <label for="rusername">用户名</label>
+                    <input v-model="register_userInfo.username" type="email" class="form-control" id="rusername" placeholder="用户名">
+                </div>
+                <div class="form-group">
+                    <label for="rpassword">密码</label>
+                    <input v-model="register_userInfo.password" type="password" class="form-control" id="rpassword" placeholder="密码">
+                </div>
+                <div class="form-group">
+                    <label for="rrpassword">重复密码</label>
+                    <input v-model="register_userInfo.repassword" type="password" class="form-control" id="rrpassword" placeholder="密码">
+                </div>
+                
+                <button  class="btn btn-default" @click="User_resister()">注册</button>
+                <div style="margin-top:20px;font-size:30px;color:white">
+                        <span id="golo" onclick="showlo()">去登陆</span>
+                    </div>
+                <div style="color:red" id="retip"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
